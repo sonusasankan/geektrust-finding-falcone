@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #000;
+  }
+ h1,h2,h3,h4{
+  font-family: cursive;
+ } 
+ .gf-title-main{
+  font-size: 48px;
+  color: #be6827;
+} 
+
+.gf-title-sub{
+  font-size: 24px;
+  color: #fff;
+}
