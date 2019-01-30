@@ -2,8 +2,30 @@ import React, { Component } from "react";
 import "./App.css";
 
 import FormContainer from "./components/container/FormContainer";
-
+import Select from "./components/presentational/Select"
 class App extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+        values: [],
+    }
+
+    this.addPlanets = this.addPlanets.bind(this);
+
+  }  
+
+  addPlanets(e){
+    let obj = [{
+      [e.target.name] : e.target.value,
+      "speed": e.target.speed 
+    }]
+
+    this.setState((state, props)=>({
+       values: obj
+    }))
+  }
+
   render() {
     return (
       <main className="main">
@@ -17,53 +39,10 @@ class App extends Component {
             </div>
             <div className="row py-4">
                 <div className="col-md-3">
-                    <div className="ff-select">
-                        <select>
-                            <option value="DonLon">Donlon</option>
-                            <option value="Enchai">Enchai</option>
-                            <option selected value="Jebing">Jebing</option>
-                            <option value="Sapir">Sapir</option>
-                            <option value="Lerbin">Lerbin</option>
-                            <option value="Pingasar">Pingasar</option>
-                        </select>
-                    </div>
+                    <Select speed="100" name={`select${1}`} value={this.state.value} onChange={this.addPlanets} options={['Donlon', 'Enchai', 'Jebing', 'Sapir', 'Lerbin', 'Pingasar']}/>
+                    {this.state.value != ""? <h3>radio button</h3>: ""}
                 </div>
-                <div className="col-md-3">
-                    <div className="ff-select">
-                        <select>
-                            <option value="DonLon">Donlon</option>
-                            <option value="Enchai">Enchai</option>
-                            <option selected value="Jebing">Jebing</option>
-                            <option value="Sapir">Sapir</option>
-                            <option value="Lerbin">Lerbin</option>
-                            <option value="Pingasar">Pingasar</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="ff-select">
-                        <select>
-                            <option value="DonLon">Donlon</option>
-                            <option value="Enchai">Enchai</option>
-                            <option selected value="Jebing">Jebing</option>
-                            <option value="Sapir">Sapir</option>
-                            <option value="Lerbin">Lerbin</option>
-                            <option value="Pingasar">Pingasar</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="col-md-3">
-                    <div className="ff-select">
-                        <select>
-                            <option value="DonLon">Donlon</option>
-                            <option value="Enchai">Enchai</option>
-                            <option selected value="Jebing">Jebing</option>
-                            <option value="Sapir">Sapir</option>
-                            <option value="Lerbin">Lerbin</option>
-                            <option value="Pingasar">Pingasar</option>
-                        </select>
-                    </div>
-                </div>
+
             </div>
             <div className="row-fluid text-center">
              <h4>Time taken: 4hr</h4>
